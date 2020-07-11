@@ -1,0 +1,55 @@
+<odoo>
+    <data>
+        <!--        资产使用列表-->
+        <record model="ir.ui.view" id="bm_zichan_use_list">
+            <field name="name">资产使用列表</field>
+            <field name="model">bm.use</field>
+            <field name="arch" type="xml">
+
+                <tree>
+                    <field name="zichan_id"/>
+                    <field name="name_id"/>
+                    <field name="local_id"/>
+                    <field name="create_on"/>
+                    <field name="end_on"/>
+                    <field name="long_on"/>
+                </tree>
+            </field>
+        </record>
+        <!--        资产使用详情业务文档表单视图-->
+        <record model="ir.ui.view" id="bm_zichan_use_form">
+            <field name="name">资产使用表单</field>
+            <field name="model">bm.use</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="back_close" type="object" string="使用完毕"/>
+                    </header>
+                    <sheet>
+                        <group name="group_top" col="2">
+                            <group name="group_left">
+                                <field name="zichan_id"/>
+                                <field name="local_id"/>
+                                <field name="create_on"/>
+                            </group>
+                            <group name="group_right">
+                                <field name="name_id"/>
+                                <field name="end_on"/>
+                                <field name="long_on"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!--        资产使用列表触发器-->
+        <record model="ir.actions.act_window" id="zichan_use_action_window">
+            <field name="name">ZiChan_Use Window</field>
+            <field name="res_model">bm.use</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="bm_zichan_use_list"/>
+        </record>
+        <menuitem name="资产使用管理" id="zichan_detail_menu_2_list" parent="zichan_menu_1"
+                  action="zichan_use_action_window"/>
+    </data>
+</odoo>
