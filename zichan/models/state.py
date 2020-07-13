@@ -6,3 +6,4 @@ class State(models.Model):
     _name = 'bm.state'
     _description = '状态'
     name = fields.Char('资产状态')
+    state_ids = fields.One2many('bm.zichan', 'state_id', string='资产状态')

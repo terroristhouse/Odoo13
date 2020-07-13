@@ -6,5 +6,5 @@ class Local(models.Model):
     _name = 'bm.site'
     _description = '资产地点'
     name = fields.Char('地点')
-    # local_ids = fields.One2many('bm.zichan','local_id',string='资产地点')
+    local_ids = fields.One2many('bm.zichan','local_id',string='资产地点')
 

@@ -1,0 +1,203 @@
+<odoo>
+    <data>
+        <!--        类别看板-->
+        <record model="ir.ui.view" id="bm_zichan_kanban_cate">
+            <field name="name">类别看板</field>
+            <field name="model">bm.cate</field>
+            <field name="type">kanban</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="name">类别看板</field>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_card">
+                                <a type="open">
+                                    <field name="name"/>
+                                    <field name="cate_ids"/>
+                                </a>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+        <!--        密级看板-->
+        <record model="ir.ui.view" id="bm_zichan_kanban_secret">
+            <field name="name">密级看板</field>
+            <field name="model">bm.secret</field>
+            <field name="type">kanban</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="name">密级看板</field>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_card">
+                                <a type="open">
+                                    <field name="name"/>
+                                    <field name="secret_ids"/>
+                                </a>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+        <!--        部门看板-->
+        <record model="ir.ui.view" id="bm_zichan_kanban_section">
+            <field name="name">部门看板</field>
+            <field name="model">bm.section</field>
+            <field name="type">kanban</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="name">部门看板</field>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_card">
+                                <a type="open">
+                                    <field name="name"/>
+                                    <field name="section_ids"/>
+                                </a>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+        <!--        地点看板-->
+        <record model="ir.ui.view" id="bm_zichan_kanban_site">
+            <field name="name">地点看板</field>
+            <field name="model">bm.site</field>
+            <field name="type">kanban</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="name">地点看板</field>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_card">
+                                <a type="open">
+                                    <field name="name"/>
+                                    <field name="local_ids"/>
+                                </a>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+        <!--        状态看板-->
+        <record model="ir.ui.view" id="bm_zichan_kanban_state">
+            <field name="name">状态看板</field>
+            <field name="model">bm.state</field>
+            <field name="type">kanban</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="name">状态看板</field>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_card">
+                                <a type="open">
+                                    <field name="name"/>
+                                    <field name="state_ids"/>
+                                </a>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+        <!--        型号看板-->
+        <record model="ir.ui.view" id="bm_zichan_kanban_type">
+            <field name="name">型号看板</field>
+            <field name="model">bm.type</field>
+            <field name="type">kanban</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="name">型号看板</field>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_card">
+                                <a type="open">
+                                    <field name="name"/>
+                                    <field name="type_ids"/>
+                                </a>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+        <!--        使用人看板-->
+        <record model="ir.ui.view" id="bm_zichan_kanban_user">
+            <field name="name">使用人看板</field>
+            <field name="model">bm.user</field>
+            <field name="type">kanban</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="name">使用人看板</field>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_card">
+                                <a type="open">
+                                    <field name="name"/>
+                                    <field name="user_ids"/>
+                                </a>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <!--        类别看板触发-->
+        <record model="ir.actions.act_window" id="bm_zichan_action_window_cate">
+            <field name="name">bm_zichan cate window</field>
+            <field name="res_model">bm.cate</field>
+            <field name="view_mode">tree,form,kanban</field>
+        </record>
+        <!--        密级看板触发-->
+        <record model="ir.actions.act_window" id="bm_zichan_action_window_secret">
+            <field name="name">bm_zichan secret window</field>
+            <field name="res_model">bm.secret</field>
+            <field name="view_mode">tree,form,kanban</field>
+        </record>
+        <!--        部门看板触发-->
+        <record model="ir.actions.act_window" id="bm_zichan_action_window_section">
+            <field name="name">bm_zichan section window</field>
+            <field name="res_model">bm.section</field>
+            <field name="view_mode">tree,form,kanban</field>
+        </record>
+        <!--        地点看板触发-->
+        <record model="ir.actions.act_window" id="bm_zichan_action_window_site">
+            <field name="name">bm_zichan site window</field>
+            <field name="res_model">bm.site</field>
+            <field name="view_mode">tree,form,kanban</field>
+        </record>
+        <!--        状态看板触发-->
+        <record model="ir.actions.act_window" id="bm_zichan_action_window_state">
+            <field name="name">bm_zichan state window</field>
+            <field name="res_model">bm.state</field>
+            <field name="view_mode">tree,form,kanban</field>
+        </record>
+        <!--        型号看板触发-->
+        <record model="ir.actions.act_window" id="bm_zichan_action_window_type">
+            <field name="name">bm_zichan type window</field>
+            <field name="res_model">bm.type</field>
+            <field name="view_mode">tree,form,kanban</field>
+        </record>
+        <!--        使用人看板触发-->
+        <record model="ir.actions.act_window" id="bm_zichan_action_window_user">
+            <field name="name">bm_zichan user window</field>
+            <field name="res_model">bm.user</field>
+            <field name="view_mode">tree,form,kanban</field>
+        </record>
+
+        <!--        二级菜单-->
+        <menuitem name="类别看板" id="bm_zichan_menu_cate_list" parent="zichan_menu_3" action="bm_zichan_action_window_cate"/>
+        <menuitem name="密级看板" id="bm_zichan_menu_secret_list" parent="zichan_menu_3" action="bm_zichan_action_window_secret"/>
+        <menuitem name="部门看板" id="bm_zichan_menu_section_list" parent="zichan_menu_3" action="bm_zichan_action_window_section"/>
+        <menuitem name="地点看板" id="bm_zichan_menu_site_list" parent="zichan_menu_3" action="bm_zichan_action_window_site"/>
+        <menuitem name="状态看板" id="bm_zichan_menu_state_list" parent="zichan_menu_3" action="bm_zichan_action_window_state"/>
+        <menuitem name="型号看板" id="bm_zichan_menu_type_list" parent="zichan_menu_3" action="bm_zichan_action_window_type"/>
+        <menuitem name="使用人看板" id="bm_zichan_menu_user_list" parent="zichan_menu_3" action="bm_zichan_action_window_user"/>
+    </data>
+</odoo>

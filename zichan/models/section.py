@@ -6,4 +6,4 @@ class Section(models.Model):
     _name = 'bm.section'
     _description = '部门'
     name = fields.Char('部门')
-    # section_ids = fields.One2many('bm.zichan','section_id',string='部门')
+    section_ids = fields.One2many('bm.zichan','section_id',string='部门')

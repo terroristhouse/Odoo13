@@ -29,6 +29,7 @@
         'views/zichans.xml',
         'views/zichan_detail.xml',
         'views/zichan_use.xml',
+        'views/zichan_kanban.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

@@ -45,7 +45,7 @@
                                 <field name="desc_detail"/>
                             </page>
                         </notebook>
-                         <group name="group_bottom">
+                        <group name="group_bottom">
                             <field name="use_ids"/>
                         </group>
                     </sheet>
@@ -101,10 +101,14 @@
             <field name="res_model">bm.site</field>
             <field name="view_mode">tree,form</field>
         </record>
+        <!--        一级菜单-->
         <menuitem name="资产管理系统" id="zichan_menu_root"/>
+        <!--        二级菜单-->
         <menuitem name="资产管理" id="zichan_menu_1" parent="zichan_menu_root"/>
-        <menuitem name="资产列表" id="zichan_menu_1_list" parent="zichan_menu_1" action="zichan_action_window"/>
         <menuitem name="资产相关" id="zichan_menu_2" parent="zichan_menu_root"/>
+        <menuitem name="资产看板" id="zichan_menu_3" parent="zichan_menu_root"/>
+        <!--        三级菜单-->
+        <menuitem name="资产列表" id="zichan_menu_1_list" parent="zichan_menu_1" action="zichan_action_window"/>
         <menuitem name="型号" id="zichan_menu_2_list" parent="zichan_menu_2" action="type_action_window"/>
         <menuitem name="状态" id="zichan_menu_2_list_1" parent="zichan_menu_2" action="state_action_window"/>
         <menuitem name="密级" id="zichan_menu_2_list_2" parent="zichan_menu_2" action="secret_action_window"/>
@@ -112,5 +116,6 @@
         <menuitem name="使用人" id="zichan_menu_2_list_4" parent="zichan_menu_2" action="user_action_window"/>
         <menuitem name="所在部门" id="zichan_menu_2_list_5" parent="zichan_menu_2" action="section_action_window"/>
         <menuitem name="所在地点" id="zichan_menu_2_list_6" parent="zichan_menu_2" action="site_action_window"/>
+
     </data>
 </odoo>

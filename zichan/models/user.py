@@ -6,3 +6,4 @@ class User(models.Model):
     _name = 'bm.user'
     _description = '使用人'
     name = fields.Char('使用人')
+    user_ids = fields.One2many('bm.zichan', 'user_id', string='使用人')

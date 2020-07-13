@@ -6,3 +6,4 @@ class Cate(models.Model):
     _name = 'bm.cate'
     _description = '类别'
     name = fields.Char('资产类别')
+    cate_ids = fields.One2many('bm.zichan','cate_id',string='资产')
