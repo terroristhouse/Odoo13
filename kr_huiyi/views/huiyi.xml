@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <!--        地点列表-->
+        <record id="kr_site_list" model="ir.ui.view">
+            <field name="model">kr.site</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <!--        业务文档表单视图-->
+        <record id="kr_huiyi_form" model="ir.ui.view">
+            <field name="model">kr.huiyi</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group name="group_top" col="2">
+                            <group name="group_left">
+                                <field name="name"/>
+                                <field name="start_time"/>
+                                <field name="end_time"/>
+                            </group>
+                            <group name="group_right">
+                                <field name="remark"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!--        地点看板-->
+        <record id="kr_site_kanban" model="ir.ui.view">
+            <field name="model">kr.site</field>
+            <field name="type">kanban</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="name">huiyi_site_kanban</field>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_card">
+                                <a type="open">
+                                    <field name="name"/>
+                                    <field name="huiyi_ids"/>
+                                </a>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+        <!--        日历视图-->
+        <record id="view_calendar_huiyi" model="ir.ui.view">
+            <field name="model">kr.huiyi</field>
+            <field name="arch" type="xml">
+                <calendar date_start="start_time" date_stop="end_time" color="name">
+                    <!-- 展示字段定义在这里 -->
+                    <field name="start_time"/>
+                    <field name="end_time"/>
+                </calendar>
+            </field>
+        </record>
+         <!--        会议列表-->
+        <record id="kr_huiyi_list" model="ir.ui.view">
+            <field name="model">kr.huiyi</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="start_time"/>
+                    <field name="end_time"/>
+                    <field name="remark"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--        会议列表触发-->
+        <record model="ir.actions.act_window" id="kr_huiyi_action_window">
+            <field name="name">kr_huiyi window</field>
+            <field name="res_model">kr.huiyi</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <!--        地点列表触发-->
+        <record model="ir.actions.act_window" id="kr_site_action_window">
+            <field name="name">kr_site window</field>
+            <field name="res_model">kr.site</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <!--        地点看板触发-->
+        <record model="ir.actions.act_window" id="kr_huiyi_action_window_site">
+            <field name="name">kr_site kanban</field>
+            <field name="res_model">kr.site</field>
+            <field name="view_mode">tree,form,kanban</field>
+        </record>
+        <!--日历视图触发-->
+        <record model="ir.actions.act_window" id="kr_huiyi_action_window_calendar">
+            <field name="name">kr_huiyi calendar</field>
+            <field name="res_model">kr.huiyi</field>
+            <field name="view_mode">tree,form,kanban,calendar</field>
+            <field name="view_id" ref="view_calendar_huiyi"/>
+        </record>
+
+        <!--        菜单-->
+        <menuitem name="会议" id="kr_huiyi_menu_root"/>
+        <!--        二级菜单-->
+        <menuitem name="会议记录" id="kr_huiyi_menu_1" parent="kr_huiyi_menu_root"/>
+        <menuitem name="会议相关" id="kr_huiyi_menu_2" parent="kr_huiyi_menu_root"/>
+        <menuitem name="会议看板" id="kr_huiyi_menu_3" parent="kr_huiyi_menu_root"/>
+        <!--        三级菜单-->
+        <menuitem name="列表" id="kr_huiyi_menu_1_list" parent="kr_huiyi_menu_1" action="kr_huiyi_action_window"/>
+        <menuitem name="日历" id="kr_huiyi_menu_1_calendar" parent="kr_huiyi_menu_1" action="kr_huiyi_action_window_calendar"/>
+        <menuitem name="地点" id="kr_huiyi_menu_2_list" parent="kr_huiyi_menu_2" action="kr_site_action_window"/>
+        <menuitem name="地点" id="kr_huiyi_menu_3_kanban" parent="kr_huiyi_menu_3" action="kr_huiyi_action_window_site"/>
+    </data>
+</odoo>

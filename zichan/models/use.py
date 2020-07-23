@@ -5,7 +5,7 @@ import datetime
 class Use(models.Model):
     _name = 'bm.use'
     _description = '使用记录'
-    zichan_id = fields.Many2one('bm.zichan','设备编号')
+    zichan_id = fields.Many2one('bm.zichan','设备编号',required=True)
     name_id = fields.Many2one('bm.user','使用人')
     local_id = fields.Many2one('bm.site','使用地点')
     create_on = fields.Datetime('开始时间', default=lambda self: fields.Datetime.now())
