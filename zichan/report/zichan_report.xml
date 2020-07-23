@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <report id="action_zichan_report"
+                string="zichan_list"
+                model="bm.zichan"
+                report_type="qweb-pdf"
+                name="zichan.report_zichan_template"/>
+        <report id="action_zichan_report_detail"
+                string="zichan_detail"
+                model="bm.zichan"
+                report_type="qweb-pdf"
+                name="zichan.report_zichan_template_detail"/>
+<!--        打印列表页-->
+        <template id="report_zichan_template">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <table class="table table-striped">
+                            <tr>
+                                <th>设备编号</th>
+                                <th>型号</th>
+                                <th>类别</th>
+                                <th>密级</th>
+                                <th>状态</th>
+                            </tr>
+                            <t t-foreach="docs" t-as="o">
+                                <tr>
+                                    <td class="col-xs-4">
+                                        <span t-field="o.name"/>
+                                    </td>
+                                    <td class="col-xs-2">
+                                        <span t-field="o.type_id"/>
+                                    </td>
+                                    <td class="col-xs-2">
+                                        <span t-field="o.cate_id"/>
+                                    </td>
+                                    <td class="col-xs-2">
+                                        <span t-field="o.secret_id"/>
+                                    </td>
+                                    <td class="col-xs-2">
+                                        <span t-field="o.state_id"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </table>
+
+                    </div>
+                </t>
+            </t>
+        </template>
+<!--        打印详情页-->
+        <template id="report_zichan_template_detail">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+
+                    <t t-foreach="docs" t-as="o">
+                        <div class="page">
+                            <!-- 报表内容 -->
+                            <form>
+                                <sheet>
+                                    <group name="group_top" col="2">
+                                        <group name="group_left">
+                                            <field t-field="o.name"/>
+                                            <field t-field="o.number"/>
+                                            <field t-field="o.local_id"/>
+                                            <field t-field="o.user_id"/>
+                                            <field t-field="o.secret_id"/>
+                                            <field t-field="o.type_id"/>
+                                        </group>
+                                        <group name="group_right">
+                                            <field t-field="o.sequ"/>
+                                            <field t-field="o.section_id"/>
+                                            <field t-field="o.cate_id"/>
+                                            <field t-field="o.state_id"/>
+                                        </group>
+                                    </group>
+                                    <notebook>
+                                        <page string="备注">
+                                            <field t-field="o.desc_detail"/>
+                                        </page>
+                                    </notebook>
+                                    <group name="group_bottom">
+                                        <field t-field="o.use_ids"/>
+                                    </group>
+                                </sheet>
+                            </form>
+                        </div>
+                    </t>
+
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>
