@@ -16,9 +16,15 @@ class Zichan(models.Model):
     secret_id = fields.Many2one('bm.secret', '密级')  # 资产密级
     state_id = fields.Many2one('bm.state', '状态')  # 资产状态
     type_id = fields.Many2one('bm.type', '型号')  # 资产型号
-    use_ids = fields.One2many('bm.use','zichan_id', string='使用记录')  # 使用记录
+    use_ids = fields.One2many('bm.use', 'zichan_id', string='使用记录')  # 使用记录
+
+    _sql_constraints = [
+        ('unique_course_name',
+         'unique(name)', '设备编号必须唯一！')]
 
     def do_close(self):
         for item in self:
             self.state_id = 3
         return True
+
+

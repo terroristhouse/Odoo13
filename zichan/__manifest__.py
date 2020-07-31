@@ -30,7 +30,7 @@
         'views/zichan_detail.xml',
         'views/zichan_use.xml',
         'views/zichan_kanban.xml',
-        'report/zichan_report.xml',
+        # 'report/zichan_report.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
