@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="assets_main_kanban" model="ir.ui.view">
+        <field name="model">assets.main</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="cate_id" class="o_kanban_small_column" quick_create="false" group_create="false"
+                    group_edit="false"
+                    group_delete="false">
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click" class="oe_kanban_card">
+                            <div class="oe_kanban_body">
+                                <div>
+                                    <strong>
+                                        <a type="open">
+                                            <field name="name"/>
+                                        </a>
+                                    </strong>
+                                </div>
+                                <ul>
+                                    <li t-attf-class="oe_kanban_text_{{record.priority.raw_value lt '2' ? 'black': 'red'}}">
+                                        <span>使用人:</span>
+                                        <field name="user_id"/>
+                                    </li>
+                                    <li>
+                                        <span>使用部门:</span>
+                                        <field name="section_id"/>
+                                    </li>
+                                    <li>
+                                        <span>所在地点:</span>
+                                        <field name="local_id"/>
+                                    </li>
+                                    <li>
+                                        <span>密级:</span>
+                                        <field name="secret_id"/>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="o_kanban_record_bottom">
+                            <field name="priority" widget="priority"/>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+</odoo>

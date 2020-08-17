@@ -9,7 +9,7 @@
         会议室使用情况
     """,
 
-    'author': "Mr. Liu",
+    'author': "刘飞",
     'website': "/",
 
     # Categories can be used to filter modules in modules listing
@@ -20,13 +20,15 @@
 
     # any module necessary for this one to work correctly
     'depends': ['base'],
+    'application': True,
 
     # always loaded
     'data': [
         'security/ir.model.access.csv',
-        'views/views.xml',
-        'views/templates.xml',
-        'views/huiyi.xml',
+        'views/meeting_main_view.xml',
+        'views/meeting_site_view.xml',
+        'views/meeting_main_kanban_view.xml',
+        'views/meeting_menu.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
